@@ -2,6 +2,36 @@ import React from "react";
 import "./App.scss";
 import profileimg from "./imgs/profile.svg";
 
+const user =[{
+  name: "Elizabeth Nortman",
+  picture: {profileimg}
+}];
+
+const todoList = [{
+  id: 1,
+  title: "Workout",
+  completed: false
+},
+{
+  id: 2,
+  title: "Write a thank you letter to dad.",
+  completed: false
+},
+{
+  id: 3,
+  title: "Buy new batteries.",
+  completed: false
+}];
+
+const todoItem = todoList.map(function(title){
+  return`
+  <li className="todolist_listitems">
+      <input type="checkbox"></input> 
+      <p>${todoList.title}</p>
+  </li>
+  `
+});
+
 function App() {
   return (
     <body className="page_container">
@@ -29,9 +59,9 @@ function App() {
         </div>
 
         <div className="bottom">
-          <img src={profileimg} className="profile_img" alt="profile"></img>
+          <img src={user.profileimg} className="profile_img" alt="profile"></img>
           <a href="www.google.com" className="username_link">
-            Elizabeth Nortman{" "}
+            {user.name}
           </a>
         </div>
       </div>
@@ -43,14 +73,7 @@ function App() {
 
         <div className="todolist">
           <ul>
-            <li className="todolist_listitems">
-              <input type="checkbox"></input> 
-              <p>Work Out</p>
-            </li>
-            <li className="todolist_listitems">
-              <input type="checkbox"></input>
-              <p>Write Letter to Olivia</p>
-            </li>
+            {todoItem}
           </ul>
         </div>
       </div>
